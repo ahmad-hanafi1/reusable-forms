@@ -9,7 +9,7 @@ function App() {
   const dispatch = useAppDispatch();
   return (
     <ThemeProvider theme={theme}>
-      <div className="bg-red-500">
+      <div className="w-screen h-screen flex items-center justify-center">
         <Button
           variant="contained"
           onClick={() =>

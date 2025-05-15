@@ -1,16 +1,25 @@
-import { Button } from "@mui/material";
-import Form from "../../components/FormComponents/Form";
-import Text from "../../components/FormComponents/Text";
 import { useForm } from "react-hook-form";
-import TextArea from "../../components/FormComponents/TextArea";
+import {
+  Button,
+  Form,
+  Select,
+  Text,
+  TextArea,
+} from "../../components/FormComponents";
 
 const TestForm = () => {
   const methods = useForm();
   return (
     <Form methods={methods} onSubmit={(data) => console.log(data)}>
       <Text name="test" label="test" placeholder="testing this shit" required />
-      <TextArea name="textaria" label="Area" required />
-      <Button type="submit">Submit</Button>
+      <TextArea name="textAria" label="Area" required />
+      <Select
+        required
+        label="age"
+        name="name"
+        values={[{ label: "Ten", value: 10 }]}
+      />
+      <Button type="submit" label="Submit" startIcon />
     </Form>
   );
 };
