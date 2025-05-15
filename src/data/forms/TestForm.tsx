@@ -2,13 +2,14 @@ import { Button } from "@mui/material";
 import Form from "../../components/FormComponents/Form";
 import Text from "../../components/FormComponents/Text";
 import { useForm } from "react-hook-form";
+import TextArea from "../../components/FormComponents/TextArea";
 
 const TestForm = () => {
   const methods = useForm();
   return (
     <Form methods={methods} onSubmit={(data) => console.log(data)}>
       <Text name="test" label="test" placeholder="testing this shit" required />
-
+      <TextArea name="textaria" label="Area" required />
       <Button type="submit">Submit</Button>
     </Form>
   );

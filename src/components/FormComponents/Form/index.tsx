@@ -11,7 +11,11 @@ interface Props {
 export default function Form({ methods, children, onSubmit }: Props) {
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)} noValidate>
+      <form
+        onSubmit={methods.handleSubmit(onSubmit)}
+        noValidate
+        className="flex flex-col gap-3 min-w-[30vw]"
+      >
         {children}
       </form>
     </FormProvider>

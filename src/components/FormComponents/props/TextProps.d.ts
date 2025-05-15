@@ -74,3 +74,11 @@ export interface TextProps extends Omit<TextFieldProps, "variant" | "label"> {
    */
   rules?: RegisterOptions;
 }
+
+export interface TextAreaProps extends TextProps {
+  /**
+   * Number of rows for the textarea.
+   * @default 3
+   */
+  rows?: number;
+}

@@ -13,13 +13,17 @@ export default function Modal() {
   );
   const dispatch = useAppDispatch();
   return (
-    <Dialog open={open} onClose={() => dispatch(toggleModal({}))}>
+    <Dialog
+      open={open}
+      onClose={() => dispatch(toggleModal({}))}
+      // sx={{ minWidth: "40vw" }}
+    >
       <DialogTitle>{title}</DialogTitle>
       {description && (
         <DialogContentText sx={{ ml: 2.6 }}>{description}</DialogContentText>
       )}
 
-      <DialogContent sx={{ minWidth: "30vw" }}>{content}</DialogContent>
+      <DialogContent>{content}</DialogContent>
     </Dialog>
   );
 }
