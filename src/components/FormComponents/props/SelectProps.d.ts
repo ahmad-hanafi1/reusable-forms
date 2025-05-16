@@ -31,7 +31,7 @@ export interface SelectProps<T = string | number>
   /**
    * The options shown in the select dropdown.
    */
-  values: OptionItem[];
+  values: OptionItem<T>[];
 
   /**
    * Optional custom validation rules for RHF.
@@ -49,6 +49,12 @@ export interface SelectProps<T = string | number>
    * @default false
    */
   defaultOpen?: boolean;
+
+  /**
+   * Whether the select dropdown is single or multiSelect.
+   * @default false
+   */
+  multiple?: boolean;
 
   /**
    * Handler triggered when the select is opened.

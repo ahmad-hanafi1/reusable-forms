@@ -1,14 +1,14 @@
 import { Controller, useFormContext } from "react-hook-form";
-import MUISelect from "@mui/material/Select";
 import {
   FormControl,
   FormHelperText,
   InputLabel,
   MenuItem,
+  Select as MUISelect,
 } from "@mui/material";
 import type { SelectProps } from "../props/SelectProps";
 
-const Select = ({
+const MultiSelect = ({
   size = "small",
   variant = "outlined",
   label,
@@ -23,7 +23,7 @@ const Select = ({
   fullWidth = true,
   disabled = false,
   color = "primary",
-}: SelectProps) => {
+}: SelectProps<string>) => {
   const { control } = useFormContext();
 
   return (
@@ -48,13 +48,12 @@ const Select = ({
           <MUISelect
             {...field}
             labelId={`${name}-label`}
-            id="demo-simple-select"
+            multiple
             defaultOpen={defaultOpen}
             label={label}
-            value={field.value || ""}
-            required
-            onClose={onClose}
+            value={field.value || []}
             onOpen={onOpen}
+            onClose={onClose}
             onChange={(event) => {
               onChange(event);
               field.onChange(event);
@@ -76,4 +75,4 @@ const Select = ({
   );
 };
 
-export default Select;
+export default MultiSelect;

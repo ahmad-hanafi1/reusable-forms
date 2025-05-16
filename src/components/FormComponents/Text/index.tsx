@@ -32,6 +32,7 @@ const Text = ({
           variant={variant}
           label={label}
           autoFocus={autoFocus}
+          value={field.value || ""}
           color={color}
           disabled={disabled}
           fullWidth={fullWidth}

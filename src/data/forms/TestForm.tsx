@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import {
   Button,
   Form,
+  MultiSelect,
   Select,
   Text,
   TextArea,
@@ -16,8 +17,21 @@ const TestForm = () => {
       <Select
         required
         label="age"
-        name="name"
-        values={[{ label: "Ten", value: 10 }]}
+        name="select"
+        values={[
+          { label: "Tennnn", value: 120 },
+          { label: "Twnt", value: 130 },
+        ]}
+      />
+      <MultiSelect
+        required
+        label="MultiSelect"
+        name="multiSelect"
+        values={[
+          { label: "Ten", value: "10" },
+          { label: "Twenty", value: "20" },
+          { label: "Thirty", value: "30" },
+        ]}
       />
       <Button type="submit" label="Submit" startIcon />
     </Form>
