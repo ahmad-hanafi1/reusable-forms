@@ -43,7 +43,8 @@ const TextArea = ({
           helperText={fieldState.error?.message || helperText}
           multiline={true}
           rows={rows}
-          value={field.value || ""}
+          value={field.value}
+          onChange={field.onChange}
         />
       )}
     />

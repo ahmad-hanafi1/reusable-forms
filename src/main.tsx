@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App.tsx";
 import { store } from "./data/store.ts";
 import { Provider } from "react-redux";
-import Modal from "./components/Dialog/index.tsx";
+import Modal from "./components/Modal/index.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

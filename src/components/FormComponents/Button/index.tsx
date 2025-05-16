@@ -12,6 +12,8 @@ const Button = ({
   size = "small",
   variant = "contained",
   type = "button",
+  sx,
+  onClick = () => {},
 }: ButtonProps) => {
   return (
     <MUIButton
@@ -24,6 +26,8 @@ const Button = ({
       startIcon={startIcon}
       endIcon={endIcon}
       loadingPosition={loadingPosition}
+      sx={sx}
+      onClick={onClick}
     >
       {label}
     </MUIButton>

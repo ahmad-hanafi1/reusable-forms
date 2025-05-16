@@ -1,9 +1,13 @@
-import { Button, ThemeProvider } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
+import { Button } from "./components/FormComponents";
 import "./App.css";
 import { useAppDispatch } from "./utils/hooks";
 import { toggleModal } from "./data/features/modalSlice";
 import theme from "./utils/theme";
-import TestForm from "./data/forms/TestForm";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+
+dayjs.extend(customParseFormat);
 
 function App() {
   const dispatch = useAppDispatch();
@@ -11,19 +15,39 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="w-screen h-screen flex items-center justify-center">
         <Button
+          label="open modal"
+          onClick={() =>
+            dispatch(
+              toggleModal({
+                title: "Title",
+                // description: "Description",
+                form: "test",
+              })
+            )
+          }
+        ></Button>
+        <Button
           variant="contained"
           onClick={() =>
             dispatch(
               toggleModal({
                 title: "Title",
                 // description: "Description",
-                content: <TestForm />,
+                form: "test",
+                props: {
+                  text: "hello",
+                  textAria: "hello",
+                  select: "120",
+                  multiSelect: ["10", "30"],
+                  datePicker: dayjs("2000-01-01"),
+                  timePicker: dayjs("12:30PM", "hh:mmA"),
+                  checkbox: true,
+                },
               })
             )
           }
-        >
-          open modal
-        </Button>
+          label="edit modal"
+        ></Button>
       </div>
     </ThemeProvider>
   );

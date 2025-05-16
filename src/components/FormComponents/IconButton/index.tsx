@@ -8,6 +8,8 @@ const IconButton = ({
   size = "small",
   type = "button",
   icon: Icon,
+  sx,
+  onClick = () => {},
 }: IconButtonProps) => {
   return (
     <MUIButton
@@ -16,6 +18,8 @@ const IconButton = ({
       disabled={disabled}
       size={size}
       type={type}
+      sx={sx}
+      onClick={onClick}
     >
       <Icon />
     </MUIButton>
