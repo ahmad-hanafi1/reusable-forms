@@ -23,6 +23,7 @@ const Select = ({
   fullWidth = true,
   disabled = false,
   color = "primary",
+  returnObject = false,
 }: SelectProps) => {
   const { control } = useFormContext();
 
@@ -51,13 +52,25 @@ const Select = ({
             id="demo-simple-select"
             defaultOpen={defaultOpen}
             label={label}
-            value={field.value || ""}
+            value={
+              (returnObject
+                ? field.value?.id || field.value?.value
+                : field.value) || ""
+            }
             required
             onClose={onClose}
             onOpen={onOpen}
             onChange={(event) => {
+              const selectedId = event.target.value;
+              const selectedObject = values.find(
+                (entry) =>
+                  (entry.value ?? entry.id ?? entry.label) === selectedId
+              );
+
+              const finalValue = returnObject ? selectedObject : selectedId;
+
               onChange(event);
-              field.onChange(event);
+              field.onChange(finalValue);
             }}
           >
             {values.map((entry) => (

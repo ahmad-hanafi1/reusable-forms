@@ -23,7 +23,7 @@ const Transition = React.forwardRef(function Transition(
 });
 
 export default function Modal() {
-  const { open, title, description, form, content } = useAppSelector(
+  const { open, title, description, form, content, width } = useAppSelector(
     (state) => state.modal
   );
   const dispatch = useAppDispatch();
@@ -34,6 +34,8 @@ export default function Modal() {
     <Dialog
       open={open}
       keepMounted
+      fullWidth
+      maxWidth={width || "sm"}
       onClose={() => dispatch(closeModal())}
       slots={{
         transition: Transition,

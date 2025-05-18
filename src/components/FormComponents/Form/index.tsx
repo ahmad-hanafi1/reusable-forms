@@ -23,7 +23,7 @@ export default function Form({ methods, children, onSubmit }: Props) {
       <form
         onSubmit={methods.handleSubmit(onSubmit)}
         noValidate
-        className="flex flex-col gap-3 w-[60vw] md:w-[40vw] pt-1"
+        className="flex flex-col gap-3 pt-1"
       >
         {children}
       </form>

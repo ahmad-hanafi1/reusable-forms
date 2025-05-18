@@ -17,7 +17,7 @@ import { useEffect } from "react";
 export interface FormInputs {
   text: string;
   textAria: string;
-  select: string;
+  select: { label: string; value: number };
   multiSelect: string[];
   datePicker: Dayjs | null;
   timePicker: Dayjs | null;
@@ -30,7 +30,7 @@ const TestForm = () => {
   const defaultValues = {
     text: (props?.text as string) || "",
     textAria: (props?.textAria as string) || "",
-    select: (props?.select as string) || "",
+    select: (props?.select as { label: string; value: number }) || "",
     multiSelect: (props?.multiSelect as string[]) || [],
     datePicker: (props?.datePicker as Dayjs) || null,
     timePicker: (props?.timePicker as Dayjs) || null,
@@ -52,6 +52,7 @@ const TestForm = () => {
       <Text name="text" label="test" placeholder="testing this shit" required />
       <TextArea name="textAria" label="Area" required />
       <Select
+        returnObject
         required
         label="age"
         name="select"

@@ -37,7 +37,7 @@ function App() {
                 props: {
                   text: "hello",
                   textAria: "hello",
-                  select: "120",
+                  select: { label: "Tenn", value: "120" },
                   multiSelect: ["10", "30"],
                   datePicker: dayjs("2000-01-01"),
                   timePicker: dayjs("12:30PM", "hh:mmA"),

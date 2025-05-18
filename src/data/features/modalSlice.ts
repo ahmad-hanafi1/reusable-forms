@@ -8,6 +8,7 @@ interface ModalState {
   form?: string;
   props?: Record<string, unknown>;
   content?: ReactNode;
+  width?: "xs" | "sm" | "md" | "lg" | "xl";
 }
 
 type ModalPayload<T = Record<string, unknown>> =
@@ -17,6 +18,7 @@ type ModalPayload<T = Record<string, unknown>> =
       content: ReactNode;
       form?: never;
       props?: T;
+      width?: "xs" | "sm" | "md" | "lg" | "xl";
     }
   | {
       title?: string;
@@ -24,6 +26,7 @@ type ModalPayload<T = Record<string, unknown>> =
       form: string;
       content?: never;
       props?: T;
+      width?: "xs" | "sm" | "md" | "lg" | "xl";
     };
 
 const initialState: ModalState = {
@@ -41,6 +44,7 @@ export const modalSlice = createSlice({
       state.description = action.payload.description;
       state.form = action.payload.form;
       state.props = action.payload.props;
+      state.width = action.payload.width;
     },
     openModal: (state, action: PayloadAction<ModalPayload>) => {
       state.open = !state.open;
@@ -49,6 +53,7 @@ export const modalSlice = createSlice({
       state.form = action.payload.form;
       state.description = action.payload.description;
       state.props = action.payload.props;
+      state.width = action.payload.width;
     },
     closeModal: (state) => {
       state.open = !state.open;

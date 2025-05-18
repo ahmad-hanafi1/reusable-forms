@@ -70,4 +70,10 @@ export interface SelectProps<T = string | number>
    * Optional handler triggered on value change.
    */
   onChange?: (event: SelectChangeEvent<T>) => void;
+
+  /**
+   * Whether to return the entire object or just the value.
+   * @default false
+   */
+  returnObject?: boolean;
 }
